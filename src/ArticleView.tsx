@@ -48,13 +48,16 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
     return <progress className="progress is-large is-info" max="100">60%</progress>;
   }
 
+  console.log(article.description.name)
+  console.log(article.description.rawData)
   return (
     <div className="content box">
-      <h2>{article.title.value}</h2>
-      <div>{article.description.value}</div>
+      <h2 data-kontent-item-id={article.system.id} data-kontent-element-codename="title"></h2>
+      <div data-kontent-item-id={article.system.id} data-kontent-element-codename="description">{article.description.value}</div>
       <div
-        className="article_body"
         dangerouslySetInnerHTML={{ __html: article.content.resolveHtml() }}
+        data-kontent-item-id={article.system.id}
+        data-kontent-element-codename="content"
       />
     </div>
   );

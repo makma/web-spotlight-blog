@@ -45,9 +45,9 @@ function ArticleListing() {
           return (
             <li className="box" key={article.system.codename}>
               <Link className="title is-5" to={`/article/${article.slug.value}`}>
-                <h3>{article.title.value}</h3>
+                <h3 data-kontent-item-id={article.system.id} data-kontent-element-codename="title">{article.title.value}</h3>
               </Link>
-              <div>{article.description.value}</div>
+              <div data-kontent-item-id={article.system.id} data-kontent-element-codename="description">{article.description.value}</div>
             </li>
           );
         })}
