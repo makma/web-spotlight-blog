@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { deliveryClient } from "./config";
-import { ContentItem, Elements } from "@kentico/kontent-delivery";
+import { ImageUrlBuilder, ImageCompressionEnum, ImageFitModeEnum, ContentItem, Elements } from "@kentico/kontent-delivery";
 import { RouteComponentProps } from "react-router-dom";
 
 class ArticleViewItem extends ContentItem {
@@ -20,6 +20,18 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
       .type("article")
       .equalsFilter("elements.slug", slug)
       .elementsParameter(["title", "description", "content", "slug"])
+      .queryConfig({
+        richTextImageResolver: (image, _) => {
+          const newImageUrl = new ImageUrlBuilder(image.url)
+            .withWidth(950)
+            .withCompression(ImageCompressionEnum.Lossy)
+            .withFitMode(ImageFitModeEnum.Clip)
+            .getUrl();
+          return {
+            url: newImageUrl
+          };
+        },
+      })
       .toPromise()
       .then((response) => {
         const article = response.items[0] as ArticleViewItem;
