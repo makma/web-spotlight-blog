@@ -5,7 +5,7 @@ import ArticleView from "./ArticleView";
 
 function App() {
   return (
-    <div className="App container">
+    <div className="App">
       <h1 className="title is-2">Welcome to my site</h1>
       <Router>
         <div>
