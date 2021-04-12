@@ -39,13 +39,13 @@ function ArticleListing() {
 
   return (
     <div className="content">
-      <h1 className="title is-2">My Articles</h1>
+      <h2 className="title is-2">My Articles</h2>
       <ul>
         {articles.map((article: ArticleListingItem) => {
           return (
             <li className="box" key={article.system.codename}>
               <Link className="title is-5" to={`/article/${article.slug.value}`}>
-                {article.title.value}
+                <h3>{article.title.value}</h3>
               </Link>
               <div>{article.description.value}</div>
             </li>
