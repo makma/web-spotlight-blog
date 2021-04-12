@@ -33,11 +33,11 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
   }, [match.params.slug]);
 
   if (isLoading || !article) {
-    return <div>Loading...</div>;
+    return <progress className="progress is-large is-info" max="100">60%</progress>;
   }
 
   return (
-    <div>
+    <div className="content box">
       <h1>{article.title.value}</h1>
       <div>{article.description.value}</div>
       <div

@@ -34,17 +34,17 @@ function ArticleListing() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <progress className="progress is-large is-info" max="100">60%</progress>;
   }
 
   return (
-    <div>
-      <h1>My Articles</h1>
+    <div className="content">
+      <h1 className="title is-2">My Articles</h1>
       <ul>
         {articles.map((article: ArticleListingItem) => {
           return (
-            <li key={article.system.codename}>
-              <Link to={`/article/${article.slug.value}`}>
+            <li className="box" key={article.system.codename}>
+              <Link className="title is-5" to={`/article/${article.slug.value}`}>
                 {article.title.value}
               </Link>
               <div>{article.description.value}</div>

@@ -5,11 +5,11 @@ import ArticleView from "./ArticleView";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to my site</h1>
+    <div className="App container">
+      <h1 className="title is-2">Welcome to my site</h1>
       <Router>
         <div>
-          <div>
+          <div className="subtitle is-4">
             Don't forget to check articles in the{" "}
             <Link to={"/articles"}>Articles section</Link>
           </div>
