@@ -22,7 +22,6 @@ function ArticleListing() {
   }
 
   // TODO: Render content from Kontent
-  // TODO: Add data attributes for Kontent Smart Link
   return (
     <div className="content">
       <h2 className="title is-3">My Articles</h2>
@@ -30,7 +29,7 @@ function ArticleListing() {
         {articles.map((article: ArticleListingItem) => {
           return (
             <li className="box" key="keyForArticle">
-              <Link className="title is-5" to={`/article/myArticle`}>
+              <Link className="title is-5" to={`/article/TODOmyArticle`}>
                 <h3>This is the title of the article</h3>
               </Link>
               <div>This is the description of the article</div>
