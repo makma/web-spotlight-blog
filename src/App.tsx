@@ -7,13 +7,7 @@ import KontentSmartLink from "@kentico/kontent-smart-link";
 import "@kentico/kontent-smart-link/dist/kontent-smart-link.styles.css";
 
 function App() {
-  useEffect(() => {
-    KontentSmartLink.initializeOnLoad({
-      projectId: process.env.REACT_APP_PROJECT_ID,
-      languageCodename: "default",
-      queryParam: "preview",
-    });
-  }, []);
+  // TODO: Init Kontent Smart Link
 
   return (
     <div className="App">
@@ -24,8 +18,7 @@ function App() {
             Don't forget to check articles in the{" "}
             <Link to={"/articles"}>Articles section</Link>
           </div>
-          <Route exact path="/articles" component={ArticleListing} />
-          <Route path="/article/:slug" component={ArticleView} />
+          {/* TODO: Add routes for articles and article detail */}
         </div>
       </Router>
     </div>
