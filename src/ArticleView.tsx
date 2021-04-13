@@ -27,7 +27,7 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
       <div className="content">This is the description of the article</div>
       <div 
         className="content"
-        dangerouslySetInnerHTML={{ __html: article.content.resolveHtml() }}
+        dangerouslySetInnerHTML={{ __html: "Content" }}
       />
     </div>
   );
