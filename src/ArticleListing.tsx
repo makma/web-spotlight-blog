@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { deliveryClient } from "./config";
+import { deliveryClient } from "./deliveryClient";
 import "@kentico/kontent-smart-link/dist/kontent-smart-link.styles.css";
 import { Link } from "react-router-dom";
 import { ContentItem, Elements } from "@kentico/kontent-delivery";
@@ -39,7 +39,7 @@ function ArticleListing() {
 
   return (
     <div className="content">
-      <h2 className="title is-2">My Articles</h2>
+      <h2 className="title is-3">My Articles</h2>
       <ul>
         {articles.map((article: ArticleListingItem) => {
           return (

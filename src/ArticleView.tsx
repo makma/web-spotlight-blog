@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { deliveryClient } from "./config";
+import { deliveryClient } from "./deliveryClient";
 import { ImageUrlBuilder, ImageCompressionEnum, ImageFitModeEnum, ContentItem, Elements } from "@kentico/kontent-delivery";
 import { RouteComponentProps } from "react-router-dom";
 
@@ -51,8 +51,9 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
   return (
     <div className="content box">
       <h2 data-kontent-item-id={article.system.id} data-kontent-element-codename="title">{article.title.value}</h2>
-      <div data-kontent-item-id={article.system.id} data-kontent-element-codename="description">{article.description.value}</div>
-      <div
+      <div className="content" data-kontent-item-id={article.system.id} data-kontent-element-codename="description">{article.description.value}</div>
+      <div 
+        className="content"
         dangerouslySetInnerHTML={{ __html: article.content.resolveHtml() }}
         data-kontent-item-id={article.system.id}
         data-kontent-element-codename="content"
