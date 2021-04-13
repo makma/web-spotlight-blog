@@ -50,7 +50,7 @@ function ArticleView({ match }: RouteComponentProps<{ slug: string }>) {
 
   return (
     <div className="content box">
-      <h2 data-kontent-item-id={article.system.id} data-kontent-element-codename="title">{article.title.value}</h2>
+      <h2 className="title is-3" data-kontent-item-id={article.system.id} data-kontent-element-codename="title">{article.title.value}</h2>
       <div className="content" data-kontent-item-id={article.system.id} data-kontent-element-codename="description">{article.description.value}</div>
       <div 
         className="content"
