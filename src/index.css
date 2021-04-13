@@ -1,1 +1,4 @@
-@import 'bulma/css/bulma.css'
+/* Overrides */
+kontent-smart-link-overlay {
+    position: static !important;
+}
