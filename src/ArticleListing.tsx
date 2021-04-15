@@ -28,7 +28,7 @@ function ArticleListing() {
       <ul>
         {articles.map((article: ArticleListingItem) => {
           return (
-            <li className="box" key="keyForArticle">
+            <li className="box" key="TODOkeyForArticle">
               <Link className="title is-5" to={`/article/TODOmyArticle`}>
                 <h3>This is the title of the article</h3>
               </Link>
