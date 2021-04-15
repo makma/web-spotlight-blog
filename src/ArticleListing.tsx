@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "@kentico/kontent-smart-link/dist/kontent-smart-link.styles.css";
 import { Link } from "react-router-dom";
 import { ContentItem, Elements } from "@kentico/kontent-delivery";
+import { deliveryClient } from "./deliveryClient";
 
 class ArticleListingItem extends ContentItem {
   title: Elements.TextElement;
@@ -15,24 +16,41 @@ function ArticleListing() {
   );
   const [isLoading, setLoading] = useState<boolean>(true);
 
-    // TODO: Get all articles
+  const getArticles = () => {
+    deliveryClient
+      .items()
+      .type("article")
+      .toPromise()
+      .then((response) => {
+        const articles = response.items as Array<ArticleListingItem>;
+        setArticles(articles);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
 
   if (isLoading) {
-    return <progress className="progress is-large is-info" max="100">60%</progress>;
+    return (
+      <progress className="progress is-large is-info" max="100">
+        60%
+      </progress>
+    );
   }
 
-  // TODO: Render content from Kontent
   return (
     <div className="content">
       <h2 className="title is-3">My Articles</h2>
       <ul>
         {articles.map((article: ArticleListingItem) => {
           return (
-            <li className="box" key="TODOkeyForArticle">
-              <Link className="title is-5" to={`/article/TODOmyArticle`}>
-                <h3>This is the title of the article</h3>
+            <li className="box" key={article.system.id}>
+              <Link className="title is-5" to={`/article/${article.slug.value}`}>
+                <h3>{article.title.value}</h3>
               </Link>
-              <div>This is the description of the article</div>
+              <div>{article.description.value}</div>
             </li>
           );
         })}

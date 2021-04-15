@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ImageUrlBuilder, ImageCompressionEnum, ImageFitModeEnum, ContentItem, Elements } from "@kentico/kontent-delivery";
 import { RouteComponentProps } from "react-router-dom";
+import { deliveryClient } from "./deliveryClient";
 
 class ArticleViewItem extends ContentItem {
   title: Elements.TextElement;
